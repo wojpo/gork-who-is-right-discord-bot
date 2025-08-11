@@ -3,7 +3,7 @@ use reqwest::Client;
 use serde_json::{json, Value};
 use crate::{Context, Error};
 
-pub const PROMPT_TEMPLATE: &str = "Based on the following conversation context, who is right?\n\n{}";
+pub const PROMPT_TEMPLATE: &str = "Na podstawie nastepujacej konwersacji okresl kto ma racje zrob doglebna analize prosimy o odpowiedz w fajnopolackim stylu:\n\n{}";
 
 pub fn build_message_context(messages: &[serenity::model::channel::Message]) -> String {
     let mut message_context = String::new();
