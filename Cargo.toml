@@ -1,0 +1,12 @@
+[package]
+name = "GorkWhosRight"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+poise = "0.6.1"
+tokio = { version = "1.47.1", features = ["full"] }
+dotenv = "0.15.0"
+reqwest = { version = "0.11.27", features = ["json"] }
+serde_json = "1.0.142"
+
