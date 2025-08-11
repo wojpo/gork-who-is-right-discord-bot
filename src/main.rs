@@ -7,7 +7,7 @@ struct Data {}
 type Error = Box<dyn std::error::Error + Send + Sync>;
 type Context<'a> = poise::Context<'a, Data, Error>;
 
-#[poise::command(slash_command, prefix_command)]
+#[poise::command(slash_command)]
 async fn who_is_right(
     ctx: Context<'_>,
     #[description = "Number of messages to fetch (max 100)"]
@@ -23,6 +23,8 @@ async fn who_is_right(
             serenity::builder::GetMessages::new().limit(count.try_into().unwrap()),
         )
         .await?;
+
+    ctx.defer().await?;
 
     let mut message_context = String::new();
     for message in messages.iter().skip(1).rev() {
@@ -90,7 +92,7 @@ async fn who_is_right(
         } else {
             chunk.trim_end().to_string()
         };
-        ctx.reply(message).await?;
+        ctx.say(message).await?;
         remaining = rest.trim_start();
         first_message = false;
     }
@@ -108,10 +110,6 @@ async fn main() {
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
             commands: vec![who_is_right()],
-            prefix_options: poise::PrefixFrameworkOptions {
-                prefix: Some("!".into()),
-                ..Default::default()
-            },
             ..Default::default()
         })
         .setup(|ctx, _ready, framework| {
