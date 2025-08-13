@@ -1,7 +1,7 @@
 use poise::serenity_prelude as serenity;
 use crate::{Context, Error, utils};
 
-#[poise::command(slash_command)]
+#[poise::command(slash_command, required_permissions = "ADMINISTRATOR")]
 pub async fn who_is_right(
     ctx: Context<'_>,
     #[description = "Number of messages to fetch (max 100)"]
