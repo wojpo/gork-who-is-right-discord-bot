@@ -1,7 +1,7 @@
 # Gork who is right discord bot
 ## Backstory
 
-During our Hack4Krak project, [@wikipop](github.com/wikipop) and [@norbiros](github.com/norbiros) frequently clashed in our Discord channel with heated debates. Tired of their arguments, we created the "Gork Who Is Right" bot, inspired by the popular "Grok" meme, to settle disputes by analyzing conversations with the Gemini API and declaring a winner.
+During our Hack4Krak project, [@wikipop](github.com/wikipop) and [@norbiros](github.com/norbiros) frequently clashed in our Discord channel with heated debates. Tired of their arguments, I created the "Gork Who Is Right" bot, inspired by the popular "Grok" meme, to settle disputes by analyzing conversations with the Gemini API and declaring a winner.
 
 ## Overview
 
